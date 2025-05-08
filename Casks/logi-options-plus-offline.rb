@@ -1,11 +1,11 @@
 cask "logi-options-plus-offline" do
-  version "1.8.8"
-  sha256 "d8f6309ef1e6b8712f3ee8bcfbca4e5443bacc862fbb39f9d48df6d34ca036ac"
+  version "1.8.9"
+  sha256 :no_check
 
   url "https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer_offline.zip"
   name "Logi Options Offline Installer"
   desc "Logitech Options offline installer for configuring Logitech devices"
-  homepage "https://prosupport.logi.com/hc/en-us/articles/10991109278871-Logitech-Options-Offline-Installer"
+  homepage "https://sync.logitech.com/hub/options/post/logi-options-offline-manual-I2a7NSJyE6oH2oy"
 
   livecheck do
     skip "Offline version"
@@ -15,6 +15,8 @@ cask "logi-options-plus-offline" do
 
   # Script is copied from the official Logi Options cask
   # See https://github.com/Homebrew/homebrew-cask/blob/4d3d9d83e738b2c90a7d515f0417f0666341f3aa/Casks/l/logi-options+.rb
+  # For refresh to a new version : brew reinstall --cask logi-options-plus-offline
+  
   installer script: {
     executable: "logioptionsplus_installer_offline.app/Contents/MacOS/logioptionsplus_installer",
     args:       ["--quiet"],
