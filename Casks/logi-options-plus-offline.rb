@@ -38,6 +38,7 @@ cask "logi-options-plus-offline" do
             delete:    [
               "/Applications/logioptionsplus.app",
               "/Applications/Utilities/Logi Options+ Driver Installer.bundle",
+              "/Applications/Utilities/LogiPluginService.app",
               "/Library/Application Support/Logitech.localized/LogiOptionsPlus",
             ],
             rmdir:     "/Library/Application Support/Logitech.localized"
@@ -45,6 +46,8 @@ cask "logi-options-plus-offline" do
   zap trash: [
     "/Users/Shared/logi",
     "/Users/Shared/LogiOptionsPlus",
+    "/Users/Shared/.logishrd",
+    "/Library/Application Support/Logi",
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.logi.optionsplus*.sfl*",
     "~/Library/Application Support/LogiOptionsPlus",
     "~/Library/Preferences/com.logi.cp-dev-mgr.plist",
