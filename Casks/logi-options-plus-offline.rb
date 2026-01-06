@@ -1,5 +1,5 @@
 cask "logi-options-plus-offline" do
-  version "1.8.9"
+  version "1.0"
   sha256 :no_check
 
   url "https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer_offline.zip"
