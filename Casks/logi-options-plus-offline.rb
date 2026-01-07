@@ -5,7 +5,7 @@ cask "logi-options-plus-offline" do
   url "https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer_offline.zip"
   name "Logi Options Offline Installer"
   desc "Logitech Options offline installer for configuring Logitech devices"
-  homepage "https://sync.logitech.com/hub/options/post/logi-options-offline-manual-I2a7NSJyE6oH2oy"
+  homepage "https://prosupport.logi.com/hc/en-us/articles/10991109278871-Logitech-Options-Offline-Installer"
 
   livecheck do
     skip "Offline version"
@@ -13,9 +13,6 @@ cask "logi-options-plus-offline" do
 
   depends_on macos: ">= :catalina"
 
-  # Script is copied from the official Logi Options cask
-  # See https://github.com/Homebrew/homebrew-cask/blob/4d3d9d83e738b2c90a7d515f0417f0666341f3aa/Casks/l/logi-options+.rb
-  
   installer script: {
     executable: "logioptionsplus_installer_offline.app/Contents/MacOS/logioptionsplus_installer",
     args:       ["--quiet"],
@@ -26,6 +23,8 @@ cask "logi-options-plus-offline" do
               "com.logi.cp-dev-mgr",
               "com.logi.optionsplus",
               "com.logi.optionsplus.updater",
+              "com.logitech.LogiRightSight",
+              "com.logitech.LogiRightSight.Agent",
             ],
             quit:      [
               "com.logi.cp-dev-mgr",
@@ -35,10 +34,10 @@ cask "logi-options-plus-offline" do
               "com.logitech.FirmwareUpdateTool",
               "com.logitech.logiaipromptbuilder",
             ],
+            pkgutil:   "com.logitech.LogiRightSightForWebcams.pkg",
             delete:    [
               "/Applications/logioptionsplus.app",
               "/Applications/Utilities/Logi Options+ Driver Installer.bundle",
-              "/Applications/Utilities/LogiPluginService.app",
               "/Library/Application Support/Logitech.localized/LogiOptionsPlus",
             ],
             rmdir:     "/Library/Application Support/Logitech.localized"
@@ -46,8 +45,6 @@ cask "logi-options-plus-offline" do
   zap trash: [
     "/Users/Shared/logi",
     "/Users/Shared/LogiOptionsPlus",
-    "/Users/Shared/.logishrd",
-    "/Library/Application Support/Logi",
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.logi.optionsplus*.sfl*",
     "~/Library/Application Support/LogiOptionsPlus",
     "~/Library/Preferences/com.logi.cp-dev-mgr.plist",
