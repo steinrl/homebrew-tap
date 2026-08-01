@@ -1,4 +1,4 @@
-cask "logi-options-custom" do
+cask "logi-options-plus-custom" do
     version "1.0"
     sha256 :no_check
 
