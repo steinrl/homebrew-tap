@@ -1,65 +1,71 @@
 cask "logi-options-plus-custom" do
-    version "1.0"
-    sha256 :no_check
+  version "1.0"
+  sha256 :no_check
 
-    url "https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip"
-    name "Logitech Options Plus Custom"
-    desc "Software for Logitech devices"
-    homepage "https://www.logitech.com/en-us/software/logi-options-plus.html"
+  url "https://download01.logi.com/web/ftp/pub/techsupport/optionsplus/logioptionsplus_installer.zip"
+  name "Logitech Options Plus Custom"
+  desc "Software for Logitech devices"
+  homepage "https://www.logitech.com/en-us/software/logi-options-plus.html"
 
-    livecheck do
-      skip "Custom installer has no version information"
-    end
+  livecheck do
+    skip "Custom installer has no version information"
+  end
 
   depends_on macos: :catalina
 
   installer script: {
     executable: "logioptionsplus_installer.app/Contents/MacOS/logioptionsplus_installer",
-   args: [
-    "--quiet",
-    "--analytics", "no",
-    "--sso", "no",
-    "--flow", "no",
-    "--smartactions", "no",
-    "--actions-ring", "no",
-    "--aipromptbuilder", "no",
-    "--logivoice", "no",
-    "--device-recommendation", "no",
-  ],
-    sudo:       true,
+    args: [
+      "--quiet",
+      "--analytics", "no",
+      "--sso", "no",
+      "--flow", "no",
+      "--smartactions", "no",
+      "--actions-ring", "no",
+      "--aipromptbuilder", "no",
+      "--logivoice", "no",
+      "--device-recommendation", "no",
+    ],
+    sudo: true,
   }
 
   uninstall launchctl: [
-              "com.logi.cp-dev-mgr",
-              "com.logi.optionsplus",
-              "com.logi.optionsplus.updater",
-              "com.logitech.LogiRightSight",
-              "com.logitech.LogiRightSight.Agent",
-            ],
-            quit:      [
-              "com.logi.cp-dev-mgr",
-              "com.logi.optionsplus",
-              "com.logi.optionsplus.driverhost",
-              "com.logi.optionsplus.updater",
-              "com.logitech.FirmwareUpdateTool",
-              "com.logitech.logiaipromptbuilder",
-            ],
-            pkgutil:   "com.logitech.LogiRightSightForWebcams.pkg",
-            delete:    [
-              "/Applications/logioptionsplus.app",
-              "/Applications/Utilities/Logi Options+ Driver Installer.bundle",
-              "/Library/Application Support/Logi",
-              "/Library/Application Support/Logitech.localized/LogiOptionsPlus",
-            ],
-            rmdir:     "/Library/Application Support/Logitech.localized"
+    "com.logi.cp-dev-mgr",
+    "com.logi.optionsplus",
+    "com.logi.optionsplus.updater",
+    "com.logitech.LogiRightSight",
+    "com.logitech.LogiRightSight.Agent",
+  ],
+  quit: [
+    "com.logi.cp-dev-mgr",
+    "com.logi.optionsplus",
+    "com.logi.optionsplus.driverhost",
+    "com.logi.optionsplus.updater",
+    "com.logitech.FirmwareUpdateTool",
+    "com.logitech.logiaipromptbuilder",
+  ],
+  pkgutil: [
+    "com.logitech.LogiRightSightForWebcams.pkg",
+    "com.logi.installer.pluginservice.package",
+    "com.logi.installer.pluginservice.media.package",
+  ],
+  delete: [
+    "/Applications/logioptionsplus.app",
+    "/Applications/Utilities/Logi Options+ Driver Installer.bundle",
+    "/Applications/Utilities/LogiPluginService.app",
+    "/Library/Application Support/Logi",
+    "/Library/Application Support/Logitech.localized/LogiOptionsPlus",
+    "/Library/Logs/Logi/LogiOptionsPlus",
+  ],
+  rmdir: "/Library/Application Support/Logitech.localized"
 
   zap trash: [
     "/Users/Shared/logi",
     "/Users/Shared/LogiOptionsPlus",
-    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.logi.optionsplus.sfl4",
-    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.logi.optionsplus.driverhost.sfl4",
     "~/Library/Application Support/Logi",
     "~/Library/Application Support/LogiOptionsPlus",
+    "~/Library/Application Support/com.apple.sharedfilelist/ApplicationRecentDocuments/com.logi.optionsplus.sfl4",
+    "~/Library/Application Support/com.apple.sharedfilelist/ApplicationRecentDocuments/com.logi.optionsplus.driverhost.sfl4",
     "~/Library/HTTPStorages/LogiPluginServiceNative",
     "~/Library/Logs/xlog_logitech",
     "~/Library/Preferences/com.logi.cp-dev-mgr.plist",
