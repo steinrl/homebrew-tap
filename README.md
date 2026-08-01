@@ -2,7 +2,7 @@
 
 This tap provides **offline** and **customized** variants of Logitech Logi Options+ for installation through Homebrew.
 
-The standard Homebrew cask (`logi-options-plus`) installs only the default online package and does not allow passing the installation arguments needed to disable certain features without modifying the cask itself. Those features include:
+The standard Homebrew cask (`logi-options+`) installs only the default online package and does not allow passing the installation arguments needed to disable certain features without modifying the cask itself. Those features include:
 
 - Flow
 - SmartActions
@@ -18,7 +18,7 @@ Packages Logitech’s official offline installer and includes the required insta
 More information: [Logitech Options+ offline installer](https://support.logi.com/hc/en-us/articles/11570501236119-Logitech-Options-offline-installer)
 
 ### `logi-options-plus-custom`
-Uses the official online installer, but disables Flow, SmartActions, Actions Ring, device recommendations, and Logi Voice during installation.
+Uses the official online installer, but disables Flow, SmartActions, Actions Ring, Device Recommendations, and Logi Voice during installation.
 
 ## Compatibility
 
