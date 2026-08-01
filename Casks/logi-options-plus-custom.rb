@@ -23,6 +23,8 @@ cask "logi-options-plus-custom" do
     "--smartactions", "no",
     "--actions-ring", "no",
     "--aipromptbuilder", "no",
+    "--logivoice", "no",
+    "--device-recommendation", "no",
   ],
     sudo:       true,
   }
